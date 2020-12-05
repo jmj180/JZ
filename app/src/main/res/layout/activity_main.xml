@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/main_top_layout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                >
+                <ImageView
+                    android:id="@+id/main_iv_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:onClick="onClick"
+                    android:background="@color/white"
+                    android:src="@mipmap/search"
+                    />
+                <Button
+                    android:id="@+id/jizhang_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="记账"
+                    android:background="@color/white"
+                    android:textColor="#FF0066"
+                    android:typeface="serif"
+                    android:layout_weight="1"/>
+                <Button
+                    android:id="@+id/baobiao_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="报表"
+                    android:textColor="#FF0066"
+                    android:typeface="serif"
+                    android:background="@color/white"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+
+                    android:id="@+id/main_btn_edit"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/main_recordbtn_bg"
+                    android:drawableTop="@mipmap/pen1"
+                    android:text="@string/jiyibi"
+                    android:layout_gravity="center"
+                    android:onClick="onClick"
+                    android:textColor="@color/red_FF0066"
+                    android:textStyle="bold"
+                    android:typeface="serif" />
+
+                <ListView
+                    android:id="@+id/main_lv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey_f3f3f3"
+                    android:divider="@null"
+                    android:dividerHeight="6dp"
+                    android:padding="10dp"
+                    android:scrollbars="none" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/main_menu_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/menu_bottom"
+        app:labelVisibilityMode="labeled"
+        android:background="@color/grey_f3f3f3"/>
+
+</LinearLayout>

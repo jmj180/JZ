@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_f3f3f3">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="20dp">
+        <TextView
+            android:id="@+id/item_mainlv_top_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="本月支出"/>
+        <TextView
+            android:id="@+id/item_mainlv_top_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 0.00"
+            android:layout_below="@id/item_mainlv_top_tv1"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/item_mainlv_top_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="本月收入"
+            android:layout_alignParentRight="true">
+
+        </TextView>
+        <TextView
+            android:id="@+id/item_mainlv_top_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text=" 0.00"
+            android:layout_below="@id/item_mainlv_top_tv2"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/black"/>
+        <Button
+            android:id="@+id/main_btn_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/main_recordbtn_bg"
+            android:text="@string/jiyibi"
+            android:textColor="@color/red_FF0066"
+            android:typeface="serif"
+            android:drawableTop="@mipmap/pen1"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/item_mainlv_top_in"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/item_mainlv_top_tv_day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="今日支出 0.00 收入 0.00"
+        android:typeface="serif"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"/>
+
+
+</LinearLayout>

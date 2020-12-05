@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/write" android:title="记账" android:icon="@mipmap/pen1"/>
+
+    <item android:id="@+id/money" android:title="资产" android:icon="@mipmap/money_1"/>
+
+</menu>
