@@ -1,4 +1,29 @@
 <resources>
     <string name="app_name">JZ</string>
     <string name="jiyibi">记一笔</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_remark">写点啥备注一下</string>
+    <string name="ensure">确定</string>
+    <string name="cancle">取消</string>
+    <string name="please_search_info">请输入关键词</string>
+    <string name="date_empty">开启第一次神奇的搜索吧</string>
+    <string name="about">关于</string>
+    <string name="setting">设置</string>
+    <string name="about_appinfo">应用信息</string>
+    <string name="about_version">版本</string>
+    <string name="about_1">1.0</string>
+    <string name="about_app">关于应用</string>
+    <string name="about_balabala">哦豁了赛</string>
+    <string name="about_developer">开发者</string>
+    <string name="about_me">关于我</string>
+    <string name="about_loc">地球</string>
+    <string name="about_email">邮箱</string>
+    <string name="about_email2">不告诉你</string>
+    <string name="about_code">源代码</string>
+    <string name="about_codeinfo">自己去写</string>
+    <string name="history_out">支出记录</string>
+    <string name="history_info">本月账单记录</string>
+
+
 </resources>

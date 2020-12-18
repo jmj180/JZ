@@ -8,7 +8,7 @@
         android:id="@+id/item_mainlv_iv"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:src="@mipmap/canyin_fs">
+        android:src="@mipmap/ic_canyin_fs">
     </ImageView>
 
     <LinearLayout
@@ -48,6 +48,7 @@
             android:id="@+id/item_mainlv_tv_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="right"
             android:text="25.00"
             android:textStyle="bold"
 

@@ -1,34 +1,83 @@
 package cn.edu.sicnu.jz;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
+
+import cn.edu.sicnu.jz.frag_first.BBFragment;
+import cn.edu.sicnu.jz.frag_first.JZFragment;
+import cn.edu.sicnu.jz.frag_sec.moreFragment;
 
 public class MainActivity extends AppCompatActivity {
+    TabLayout tabLayout1;
+    ViewPager viewPager1;
 //头布局控件
     View headerView;
-    TextView topOutTv,topInTv;
-    Button jz;
+    Fragment firstFragment,secondFragment,thirdFragment;
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView mBottomNV = (BottomNavigationView) findViewById(R.id.main_menu_bottom);
         mBottomNV.setItemIconTintList(null);
-        //头布局
-        addLVHeaderView();
+
+        firstFragment=new JZFragment();
+        secondFragment=new BBFragment();
+        thirdFragment=new moreFragment();
+        setmainFragment();
+
+        mBottomNV.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+
+                    case R.id.write:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.frameLayout,firstFragment)
+                                .commit();
+                       return true;
+                    case R.id.baobiao:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.frameLayout,secondFragment)
+                                .commit();
+                        return true;
+                    case R.id.more:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.frameLayout,thirdFragment)
+                                .commit();
+                        return true;
+
+                }
+                Log.d("fragment",String.valueOf( item.getItemId()));
+                return false;
+            }
+        });
+
+
     }
 
-    private void addLVHeaderView() {
-        headerView = getLayoutInflater().inflate(R.layout.item_mainlv_top, null);
 
+
+
+    private void setmainFragment() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frameLayout,firstFragment)
+                .commit();
     }
 
-    public void onClick(View view) {
-    }
 }
