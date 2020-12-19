@@ -1,4 +1,4 @@
-package cn.edu.sicnu.jz.frag_sec;
+package cn.edu.sicnu.jz.frag_thir;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import android.widget.Button;
 
 import cn.edu.sicnu.jz.AboutActivity;
 import cn.edu.sicnu.jz.R;
-import cn.edu.sicnu.jz.SearchActivity;
+import cn.edu.sicnu.jz.SettingActivity;
 
 
 public class moreFragment extends Fragment {
@@ -39,7 +39,7 @@ public class moreFragment extends Fragment {
         settingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it1 = new Intent(getContext(), AboutActivity.class);
+                Intent it1 = new Intent(getContext(), SettingActivity.class);
                 startActivity(it1);
             }
         });

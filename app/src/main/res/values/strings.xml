@@ -24,6 +24,10 @@
     <string name="about_codeinfo">自己去写</string>
     <string name="history_out">支出记录</string>
     <string name="history_info">本月账单记录</string>
+    <string name="in">收入</string>
+    <string name="out">支出</string>
+    <string name="chart_info">报表</string>
+    <string name="not_data">无数据</string>
 
 
 </resources>

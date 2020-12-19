@@ -15,7 +15,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import cn.edu.sicnu.jz.frag_first.BBFragment;
 import cn.edu.sicnu.jz.frag_first.JZFragment;
-import cn.edu.sicnu.jz.frag_sec.moreFragment;
+import cn.edu.sicnu.jz.frag_thir.moreFragment;
 
 public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout1;

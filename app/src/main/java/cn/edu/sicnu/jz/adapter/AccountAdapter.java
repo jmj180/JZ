@@ -63,8 +63,11 @@ public class AccountAdapter extends BaseAdapter {
             holder.timeTv.setText("今天");
 
         }else{
-            holder.timeTv.setText(bean.getTime());
-            Log.d("day",String.valueOf(day));
+            if(bean.getYear()==year){
+                holder.timeTv.setText(bean.getTime());
+            }else {
+                holder.timeTv.setText(bean.getYear()+"年"+bean.getTime());
+            }
 
         }
 

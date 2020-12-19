@@ -22,6 +22,9 @@ public class HistoryInActivity extends AppCompatActivity {
     List<AccountBean> mDatas;
     AccountAdapter adapter;
     int year,month;
+
+    int dialogSelPos = -1;
+    int dialogSelMonth = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +36,10 @@ public class HistoryInActivity extends AppCompatActivity {
         historyin.setAdapter(adapter);
         initTime();
         timeTv.setText(year+"年"+month+"月");
-        loadData();
+        loadData(year,month);
     }
-    private void loadData() {
-        List<AccountBean>list= DBManager.getAccountListOneMonthFromatAccounttb(year,month,1);
+    private void loadData(int year,int month) {
+        List<AccountBean>list= DBManager.getAccountListOneMonthFromAccounttb(year,month,1);
         mDatas.clear();
         mDatas.addAll(list);
         adapter.notifyDataSetChanged();
@@ -53,9 +56,17 @@ public class HistoryInActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.history_iv_rili2:
-                CalendarDialog dialog=new CalendarDialog(this);
+                CalendarDialog dialog=new CalendarDialog(this,dialogSelPos,dialogSelMonth);
                 dialog.show();
                 dialog.setDialogSize();
+                dialog.setOnRefreshListener(new CalendarDialog.OnRefreshListener() {
+                    @Override
+                    public void onRefresh(int selPos, int year, int month) {
+                        timeTv.setText(year+"年"+month+"月");
+                        loadData(year,month);
+
+                    }
+                });
 
                 break;
         }

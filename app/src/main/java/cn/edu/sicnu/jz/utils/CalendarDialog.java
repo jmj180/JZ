@@ -10,12 +10,15 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -32,15 +35,29 @@ public class CalendarDialog extends Dialog implements View.OnClickListener {
 
     List<TextView>hsvViewList;
     List<Integer>yearList;
-    TextView gv_tv;
+
 
     int selectPos = -1;//正在被点击的年份
     private CalendarAdapter adapter;
     int selectMonth = -1;
 
-    public CalendarDialog(@NonNull Context context) {
+    public CalendarDialog(@NonNull Context context, int selectPos,int selectMonth) {
         super(context);
+        this.selectPos = selectPos;
+        this.selectMonth = selectMonth;
     }
+
+
+    public  interface  OnRefreshListener{
+        public void onRefresh(int selPos,int year,int month);
+    }
+
+    OnRefreshListener onRefreshListener;
+    public  void setOnRefreshListener(OnRefreshListener onRefreshListener){
+        this.onRefreshListener=onRefreshListener;
+    }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +69,24 @@ public class CalendarDialog extends Dialog implements View.OnClickListener {
         errorIv.setOnClickListener(this);
         addViewToLayout();
         initGridView();
+        //设置gridview当中每一个item的点击事件
+        setGVListener();
+    }
+
+    private void setGVListener() {
+        gv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    adapter.selPos=position;
+                    adapter.notifyDataSetChanged();
+                    int year=adapter.year;
+                    int month=position+1;
+                    //获取被选中的年份月份
+                    onRefreshListener.onRefresh(selectPos,year,month);
+                cancel();
+            }
+        });
     }
 
     private void initGridView() {
@@ -69,7 +104,7 @@ public class CalendarDialog extends Dialog implements View.OnClickListener {
 
         }
         gv.setAdapter(adapter);
-        Log.d("initGridView","ok");
+
     }
 
     private void addViewToLayout() {
@@ -105,6 +140,8 @@ public class CalendarDialog extends Dialog implements View.OnClickListener {
                 public void onClick(View v) {
                     changeTvbg(pos);
                     selectPos=pos;
+                    int year = yearList.get(selectPos);
+                    adapter.setYear(year);
                 }
             });
         }

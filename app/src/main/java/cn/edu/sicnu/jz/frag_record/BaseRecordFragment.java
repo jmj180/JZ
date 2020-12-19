@@ -174,7 +174,7 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
                 timeTv.setText(time);
                 accountBean.setTime(time);
                 accountBean.setYear(year);
-                accountBean.setMoney(month);
+                accountBean.setMonth(month);
                 accountBean.setDay(day);
             }
         });

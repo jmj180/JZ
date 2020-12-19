@@ -182,6 +182,7 @@ public class JZFragment extends Fragment {
 
         float incomeOneMonth=DBManager.getSumMoneyOneMonth(year,month ,1);
         float outcomeOneMonth=DBManager.getSumMoneyOneMonth(year,month ,0);
+
         topInTv.setText(""+incomeOneMonth);
         topOutTv.setText(""+outcomeOneMonth);
         topout.setText(month+"月支出");
